@@ -491,7 +491,7 @@ function cert() {
     echo -e "[2] Cloudflare DNS API 申请（需要输入APIKEY）"
     echo -e "-----------------------------------"
     read -p "请选择证书申请方式: " certmethod
-    if [ "certmethod" == "1" ]; then
+    if [ "$certmethod" == "1" ]; then
       echo -e "请确认本机${Red_font_prefix}80${Font_color_suffix}端口未被占用, 否则会申请失败"
       if "$HOME"/.acme.sh/acme.sh --issue -d "${domain}" --standalone -k ec-256 --force; then
         echo -e "SSL 证书生成成功，默认申请高安全性的ECC证书"
